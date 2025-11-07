@@ -9,7 +9,7 @@ Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
 
 **2.** After Download Put **StudioRPC.rbxmx** To Your **Roblox Studio Plugin Folder**
 
-**3.** Put **RobloxStudioRPCServer.exe** To Anyware On Your PC And Create Shotcut To Your Desktop!
+**3.** Put **RobloxStudioRPCServer.exe** To Anyware On Your PC And Create Shotcut On Your Desktop!
 
 ---
 
