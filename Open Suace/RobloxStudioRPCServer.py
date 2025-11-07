@@ -58,12 +58,12 @@ def rpc_upload():
 
     Top.config(text=f"Game: {data.get('Details', '')}")
     Disc.config(text=f"Editing: {data.get('State', '')}")
-    last_update = time.time()
+    last_update = time.time() 
     return jsonify({"status": "OK", "received": data})
 
 def start_flask():
-    ResaultIPLabel.config(text=f"Server Is Running On: http://127.0.0.1:2500")
-    app.run(host="127.0.0.1", port=2500, debug=False)
+    ResaultIPLabel.config(text=f"Server Is Running On: http://127.0.0.1:1234")
+    app.run(host="127.0.0.1", port=1234, debug=False)
 
 def timeout_checker():
     global last_update

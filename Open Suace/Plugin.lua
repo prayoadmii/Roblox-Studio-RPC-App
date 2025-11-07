@@ -5,8 +5,7 @@
 
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
-local ServerURL = "http://127.0.0.1:2500/StudioRPC/Update"
-local PluginPackageId = "rbx.prayoadmii.StudioRPC"
+local ServerURL = "http://127.0.0.1:1234/StudioRPC/Update"
 
 local toolbar = plugin:CreateToolbar("Studio Chat")
 local ToggleButton = toolbar:CreateButton(
