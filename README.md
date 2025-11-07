@@ -3,7 +3,7 @@
 Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
 
 # How To Use?
-**1.** Download All File From This Repo (Except **README.md**)
+**1.** Download All File From This Repo (Except **README.md** And File In **Open Suace/** Folder)
 
 **2.** After Download Put **StudioRPC.rbxmx** To Your **Roblox Studio Plugin Folder**
 
