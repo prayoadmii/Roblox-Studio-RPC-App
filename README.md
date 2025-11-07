@@ -36,5 +36,9 @@ Also On Server App We Use [Python Flask](https://flask.palletsprojects.com/en/st
 **A:** We're Now Don't Sure That We Can Answer That Or Not?
 
 ---
+
+If You Found Some Bug, Crash, Error Please Report On Our [Discord Server](https://discord.gg/vkFJhzFmYY)
+
+---
 Thanks You For Reading!
 ### ©2025 Noob's Studio Creations!
