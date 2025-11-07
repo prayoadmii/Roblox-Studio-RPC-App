@@ -30,6 +30,8 @@ So You Can Make Your Macbook Version By Your Self... The Script I Put It In `Ope
 # Q: How I Can Up-to-date The Server And Client?
 **A:** That Eazy! You Need To Come Check This Repo Every Week (Or Every Time You Want To Update Your RPC)
 
+Also... You Can Join Our [Discord Server](https://discord.gg/vkFJhzFmYY) If You Wanted To Know About Update!
+
 # Q: How It Work?
 **A:** On Roblox Plugin We're Use [HTTP Service](https://create.roblox.com/docs/reference/engine/classes/HttpService) To Make It Can Send Game Data To Server App
 
