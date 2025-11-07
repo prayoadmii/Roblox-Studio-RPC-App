@@ -11,19 +11,20 @@ from PIL import Image
 discord_connected = False
 RPC = None
 
+DEFAULT_RPC = {
+    "details": "On Startpage Or Did Not Close Server",
+    "state": "Editing: nil",
+    "large_image": None,
+    "small_image": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-310966282D3529E36976BF6B07B1DC90-Png/100/100/AvatarHeadshot/Png/isCircular"
+}
+
 def init_discord_rpc():
     global RPC, discord_connected
     try:
         if RPC is None:
             RPC = Presence("1435950204535836702")
             RPC.connect()
-        RPC.update(
-            details="On Startpage Or Did Not Close Server",
-            state="Workspace: Start Page",
-            small_image="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-310966282D3529E36976BF6B07B1DC90-Png/180/180/AvatarHeadshot/Webp/noFilter",
-            small_text="User: nil",
-            large_text="Roblox Studio"
-        )
+            RPC.update(**DEFAULT_RPC)
         discord_connected = True
         DiscordStatus.config(text="Discord Was Connected!", fg="#00FF00")
     except Exception as e:
@@ -31,13 +32,6 @@ def init_discord_rpc():
         discord_connected = False
         DiscordStatus.config(text="Can't Connect To Discord Retrying...", fg="red")
         print("Discord RPC not connected yet:", e)
-
-DEFAULT_RPC = {
-    "details": "On Startpage Or Did Not Close Server",
-    "state": "Editing: nil",
-    "large_image": None,
-    "small_image": "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-310966282D3529E36976BF6B07B1DC90-Png/100/100/AvatarHeadshot/Png/isCircular"
-}
 
 last_update = time.time()
 app = Flask(__name__)
