@@ -27,6 +27,9 @@ Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
 
 So You Can Make Your Macbook Version By Your Self... The Script I Put It In `Open Suace/`
 
+# Q: How I Can Up-to-date The Server And Client?
+**A:** That Eazy! You Need To Come Check This Repo Every Week (Or Every Time You Want To Update Your RPC)
+
 # Q: How It Work?
 **A:** On Roblox Plugin We're Use [HTTP Service](https://create.roblox.com/docs/reference/engine/classes/HttpService) To Make It Can Send Game Data To Server App
 
