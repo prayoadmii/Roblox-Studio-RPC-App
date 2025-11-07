@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Script" referent="RBX4122B2C307AD4E4BAB7A2B033B004C78">
+	<Item class="Script" referent="RBX0F0B8CF4A2C746B2BE01F6B24DF9F801">
 		<Properties>
 			<ProtectedString name="Source"><![CDATA[--[[ 
     Roblox Studio RPC Plugin
@@ -31,7 +31,6 @@ local function GetThumbnailsFromId(Id:number)
 		local data = HttpService:JSONDecode(response)
 		return data.data[1].imageUrl
 	else
-		warn("Failed to fetch thumbnail for userId:", Id)
 		return nil
 	end
 end
