@@ -1,0 +1,107 @@
+--[[ 
+    Roblox Studio RPC Plugin
+    Author: PrayoadMii
+--]]
+
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local ServerURL = "http://127.0.0.1:2500/StudioRPC/Update"
+local PluginPackageId = "rbx.prayoadmii.StudioRPC"
+
+local toolbar = plugin:CreateToolbar("Studio Chat")
+local ToggleButton = toolbar:CreateButton(
+	"Studio RPC",
+	"Check Did You're Running Server Or Not If Icon Is Red",
+	"rbxassetid://132676871546283"
+)
+
+local function GetThumbnailsFromId(Id:number)
+	local url = ("https://thumbnails.roproxy.com/v1/users/avatar-headshot?userIds=%d&size=100x100&format=Png&isCircular=true"):format(Id)
+	local success, response = pcall(function()
+		return HttpService:GetAsync(url)
+	end)
+	if success then
+		local data = HttpService:JSONDecode(response)
+		return data.data[1].imageUrl
+	else
+		return nil
+	end
+end
+
+local function GetPlaceThumbnail(placeId:number)
+	local url = ("https://thumbnails.roproxy.com/v1/places/gameicons?placeIds=%d&size=150x150&format=Png"):format(placeId)
+	local success, response = pcall(function()
+		return HttpService:GetAsync(url)
+	end)
+	if success then
+		local data = HttpService:JSONDecode(response)
+		if data and data.data and data.data[1] then
+			return data.data[1].imageUrl
+		end
+	end
+	return nil
+end
+
+local function GetGameName() :string
+	local susess, resault = pcall(function()
+		return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+	end)
+	if susess then
+		return resault.Name
+	else
+		return game.Name
+	end
+end
+
+local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallImage, SmallImageTip)
+	local DataToSendToServer = {
+		Details = Line1 or nil,
+		State = Line2 or nil,
+		LargeImage = BigImage or nil,
+		SmallImage = SmallImage or nil,
+		BigImageToolHover = BigImageTip or "Roblox Studio",
+		SmallImageHover = SmallImageTip or "Editing As: nil",
+		Buttons = {
+			{
+				label = "View " .. GetGameName() .. " On Roblox",
+				url = "https://www.roblox.com/games/" .. game.PlaceId
+			}
+		}
+	}
+	local success, err = pcall(function()
+		HttpService:PostAsync(ServerURL, HttpService:JSONEncode(DataToSendToServer), Enum.HttpContentType.ApplicationJson)
+	end)
+	if not success then
+		ToggleButton.Icon = "rbxassetid://117554232976059"
+	else
+		ToggleButton.Icon = "rbxassetid://117636057142584"
+	end
+end
+
+local function GetItem()
+	local selected = game:GetService("Selection"):Get()
+	if #selected > 1 then
+		return selected[1].Name .. " And Others " .. #selected .. " Instances"
+	elseif #selected > 0 then
+		return selected[1].Name
+	else
+		return "Nothing"
+	end
+end
+
+task.spawn(function()
+	while task.wait(2.5) do
+		local player = Players.LocalPlayer
+		if player then
+			local avatarUrl = GetThumbnailsFromId(player.UserId)
+			SendRPCToServerAsync(
+				GetGameName(),
+				GetItem(),
+				GetPlaceThumbnail(game.PlaceId),
+				GetGameName(),
+				avatarUrl,
+				"Editing As: " .. player.DisplayName
+			)
+		end
+	end
+end)

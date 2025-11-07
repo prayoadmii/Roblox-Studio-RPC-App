@@ -36,7 +36,7 @@ def init_discord_rpc():
 last_update = time.time()
 app = Flask(__name__)
 
-@app.route("/API/RpcUpload", methods=["POST"])
+@app.route("/StudioRPC/Update", methods=["POST"])
 def rpc_upload():
     global last_update, discord_connected
     data = request.json or {}
