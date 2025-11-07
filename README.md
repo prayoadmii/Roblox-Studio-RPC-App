@@ -30,7 +30,7 @@ So You Can Make Your Macbook Version By Your Self... The Script I Put It In `Ope
 # Q: How It Work?
 **A:** On Roblox Plugin We're Use [HTTP Service](https://create.roblox.com/docs/reference/engine/classes/HttpService) To Make It Can Send Game Data To Server App
 
-Also On Server App We Use [Python Flask](https://flask.palletsprojects.com/en/stable/) To Host An LocalHost Webside
+Also On Server App We Use [Python Flask](https://flask.palletsprojects.com/en/stable/) To Host An LocalHost WebServer
 
 # Q: It's Will Work On My Computer?
 **A:** We're Now Don't Sure That We Can Answer That Or Not?
