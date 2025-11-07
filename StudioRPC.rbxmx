@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Script" referent="RBXF0781A0083184A4EB1638994293EA551">
+	<Item class="Script" referent="RBX3CF155FAE65C40B0A367C6BF383D653C">
 		<Properties>
 			<ProtectedString name="Source"><![CDATA[--[[ 
     Roblox Studio RPC Plugin
@@ -18,6 +18,8 @@ local ToggleButton = toolbar:CreateButton(
 	"Check Did You're Running Server Or Not If Icon Is Red",
 	"rbxassetid://132676871546283"
 )
+
+local Status = "Plugin Is Starting..."
 
 local function GetThumbnailsFromId(Id:number)
 	local url = ("https://thumbnails.roproxy.com/v1/users/avatar-headshot?userIds=%d&size=100x100&format=Png&isCircular=true"):format(Id)
@@ -71,8 +73,10 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 	end)
 	if not success then
 		ToggleButton.Icon = "rbxassetid://117554232976059"
+		Status = "Cannot Sonnect To Server! Check Is Server Is Running Or Not Or Download It At https://prayoadmii.neocities.org/Creations/RobloxStudioRPC"
 	else
 		ToggleButton.Icon = "rbxassetid://117636057142584"
+		Status = "Server Was Connected!"
 	end
 end
 
@@ -86,6 +90,10 @@ local function GetItem()
 		return "Nothing"
 	end
 end
+
+ToggleButton.Click:Connect(function()
+	print("[Studio RPC]: " .. Status)
+end)
 
 task.spawn(function()
 	while task.wait(2.5) do

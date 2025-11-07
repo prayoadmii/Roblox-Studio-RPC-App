@@ -14,6 +14,8 @@ local ToggleButton = toolbar:CreateButton(
 	"rbxassetid://132676871546283"
 )
 
+local Status = "Plugin Is Starting..."
+
 local function GetThumbnailsFromId(Id:number)
 	local url = ("https://thumbnails.roproxy.com/v1/users/avatar-headshot?userIds=%d&size=100x100&format=Png&isCircular=true"):format(Id)
 	local success, response = pcall(function()
@@ -66,8 +68,10 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 	end)
 	if not success then
 		ToggleButton.Icon = "rbxassetid://117554232976059"
+		Status = "Cannot Sonnect To Server! Check Is Server Is Running Or Not Or Download It At https://prayoadmii.neocities.org/Creations/RobloxStudioRPC"
 	else
 		ToggleButton.Icon = "rbxassetid://117636057142584"
+		Status = "Server Was Connected!"
 	end
 end
 
@@ -81,6 +85,10 @@ local function GetItem()
 		return "Nothing"
 	end
 end
+
+ToggleButton.Click:Connect(function()
+	print("[Studio RPC]: " .. Status)
+end)
 
 task.spawn(function()
 	while task.wait(2.5) do
