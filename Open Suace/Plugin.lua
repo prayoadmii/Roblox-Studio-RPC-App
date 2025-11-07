@@ -59,13 +59,7 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 		LargeImage = BigImage or nil,
 		SmallImage = SmallImage or nil,
 		BigImageToolHover = BigImageTip or "Roblox Studio",
-		SmallImageHover = SmallImageTip or "Editing As: nil",
-		Buttons = {
-			{
-				label = "View " .. GetGameName() .. " On Roblox",
-				url = "https://www.roblox.com/games/" .. game.PlaceId
-			}
-		}
+		SmallImageHover = SmallImageTip or "Editing As: nil"
 	}
 	local success, err = pcall(function()
 		HttpService:PostAsync(ServerURL, HttpService:JSONEncode(DataToSendToServer), Enum.HttpContentType.ApplicationJson)
