@@ -21,6 +21,8 @@ Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
 # Q: Where Are Mac Version Of Server?
 **A:** We're Did Not Make The Server Server Side For Macbook
 
+So You Can Make Your Macbook Version By Your Self... The Script I In `Open Suace/`
+
 # Q: How It Work?
 **A:** On Roblox Plugin We're Use [HTTP Service](https://create.roblox.com/docs/reference/engine/classes/HttpService) To Make It Can Send Game Data To Server App
 
