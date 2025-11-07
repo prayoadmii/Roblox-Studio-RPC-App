@@ -1,6 +1,8 @@
-# How To Setup/Use Roblox Studio RPC (By Noob's Studio Creations!)
+# How To Setup/Use Roblox Studio RPC
 
 Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
+
+---
 
 # How To Use?
 **1.** Download All File From This Repo (Except **README.md** And File In **Open Suace/** Folder)
@@ -8,6 +10,8 @@ Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
 **2.** After Download Put **StudioRPC.rbxmx** To Your **Roblox Studio Plugin Folder**
 
 **3.** Put **RobloxStudioRPCServer.exe** To Anyware On Your PC And Create Shotcut To Your Desktop!
+
+---
 
 # Q&A Help
 
@@ -19,9 +23,9 @@ Hello Guys and Welcome To Repos To Download A Full Roblox Studio RPC Full Setup!
 3. It's Will Start When You Turn On Computer Now!
 
 # Q: Where Are Mac Version Of Server?
-**A:** We're Did Not Make The Server Server Side For Macbook
+**A:** We're Did Not Make The Server Side For Macbook
 
-So You Can Make Your Macbook Version By Your Self... The Script I In `Open Suace/`
+So You Can Make Your Macbook Version By Your Self... The Script I Put It In `Open Suace/`
 
 # Q: How It Work?
 **A:** On Roblox Plugin We're Use [HTTP Service](https://create.roblox.com/docs/reference/engine/classes/HttpService) To Make It Can Send Game Data To Server App
@@ -29,4 +33,8 @@ So You Can Make Your Macbook Version By Your Self... The Script I In `Open Suace
 Also On Server App We Use [Python Flask](https://flask.palletsprojects.com/en/stable/) To Host An LocalHost Webside
 
 # Q: It's Will Work On My Computer?
-**A:** We're Now Don't Sure Too
+**A:** We're Now Don't Sure That We Can Answer That Or Not?
+
+---
+Thanks You For Reading!
+### ©2025 Noob's Studio Creations!
