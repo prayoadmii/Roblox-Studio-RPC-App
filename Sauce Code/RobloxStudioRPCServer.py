@@ -36,10 +36,25 @@ def init_discord_rpc():
 last_update = time.time()
 app = Flask(__name__)
 
+def disconnect_discord_rpc():
+    global RPC, discord_connected
+    if RPC is not None:
+        try:
+            RPC.close()
+        except Exception as e:
+            print("Error closing Discord RPC:", e)
+        RPC = None
+    discord_connected = False
+    DiscordStatus.config(text="Server Paused! Open Roblox Studio To Resume", fg="red")
+
 @app.route("/StudioRPC/Update", methods=["POST"])
 def rpc_upload():
     global last_update, discord_connected
     data = request.json or {}
+
+    # Reconnect if not connected
+    if not discord_connected:
+        init_discord_rpc()
 
     if discord_connected:
         try:
@@ -66,9 +81,15 @@ def start_flask():
     app.run(host="127.0.0.1", port=1234, debug=False)
 
 def timeout_checker():
-    global last_update
+    global last_update, discord_connected
     while True:
-        if time.time() - last_update > 5:
+        elapsed = time.time() - last_update
+        if elapsed > 15:
+            if discord_connected:
+                disconnect_discord_rpc()
+            Top.config(text="Please Start Your Roblox Studio!")
+            Disc.config(text="Waiting For Data From Roblox Studio")
+        elif elapsed > 5:
             if discord_connected:
                 try:
                     RPC.update(**DEFAULT_RPC)
