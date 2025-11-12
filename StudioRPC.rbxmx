@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Script" referent="RBX3CF155FAE65C40B0A367C6BF383D653C">
+	<Item class="Script" referent="RBXB5472DBCE11C41129E5632BEA5FC04CE">
 		<Properties>
 			<ProtectedString name="Source"><![CDATA[--[[ 
     Roblox Studio RPC Plugin
@@ -12,9 +12,9 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local ServerURL = "http://127.0.0.1:1234/StudioRPC/Update"
 
-local toolbar = plugin:CreateToolbar("Studio Chat")
+local toolbar = plugin:CreateToolbar("Studio RPC (Client)")
 local ToggleButton = toolbar:CreateButton(
-	"Studio RPC",
+	"Studio RPC (Client)",
 	"Check Did You're Running Server Or Not If Icon Is Red",
 	"rbxassetid://132676871546283"
 )

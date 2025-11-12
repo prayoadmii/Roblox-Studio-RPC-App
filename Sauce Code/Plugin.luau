@@ -7,9 +7,9 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local ServerURL = "http://127.0.0.1:1234/StudioRPC/Update"
 
-local toolbar = plugin:CreateToolbar("Studio Chat")
+local toolbar = plugin:CreateToolbar("Studio RPC (Client)")
 local ToggleButton = toolbar:CreateButton(
-	"Studio RPC",
+	"Studio RPC (Client)",
 	"Check Did You're Running Server Or Not If Icon Is Red",
 	"rbxassetid://132676871546283"
 )
