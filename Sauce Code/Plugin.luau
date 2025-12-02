@@ -60,8 +60,8 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 		State = Line2 or nil,
 		LargeImage = BigImage or nil,
 		SmallImage = SmallImage or nil,
-		BigImageToolHover = BigImageTip or "Roblox Studio",
-		SmallImageHover = SmallImageTip or "Editing As: nil"
+		BigImageToolHover = BigImageTip or "Roblox Studio Places",
+		SmallImageHover = SmallImageTip or "Editing As: Guest"
 	}
 	local success, err = pcall(function()
 		HttpService:PostAsync(ServerURL, HttpService:JSONEncode(DataToSendToServer), Enum.HttpContentType.ApplicationJson)
@@ -76,13 +76,17 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 end
 
 local function GetItem()
-	local selected = game:GetService("Selection"):Get()
-	if #selected > 1 then
-		return selected[1].Name .. " And Others " .. #selected .. " Instances"
-	elseif #selected > 0 then
-		return selected[1].Name
-	else
+	if game:GetService("RunService"):IsEdit() == false then
 		return "Nothing"
+	else
+		local selected = game:GetService("Selection"):Get()
+		if #selected > 1 then
+			return selected[1].ClassName .. " With Others " .. #selected .. " Instances"
+		elseif #selected > 0 then
+			return selected[1].ClassName
+		else
+			return "Nothing"
+		end
 	end
 end
 

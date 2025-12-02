@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Script" referent="RBXB5472DBCE11C41129E5632BEA5FC04CE">
+	<Item class="Script" referent="RBXF0F92481F1754E5CB90EA2A859F312F0">
 		<Properties>
 			<ProtectedString name="Source"><![CDATA[--[[ 
     Roblox Studio RPC Plugin
@@ -65,8 +65,8 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 		State = Line2 or nil,
 		LargeImage = BigImage or nil,
 		SmallImage = SmallImage or nil,
-		BigImageToolHover = BigImageTip or "Roblox Studio",
-		SmallImageHover = SmallImageTip or "Editing As: nil"
+		BigImageToolHover = BigImageTip or "Roblox Studio Places",
+		SmallImageHover = SmallImageTip or "Editing As: Guest"
 	}
 	local success, err = pcall(function()
 		HttpService:PostAsync(ServerURL, HttpService:JSONEncode(DataToSendToServer), Enum.HttpContentType.ApplicationJson)
@@ -81,13 +81,17 @@ local function SendRPCToServerAsync(Line1, Line2, BigImage, BigImageTip, SmallIm
 end
 
 local function GetItem()
-	local selected = game:GetService("Selection"):Get()
-	if #selected > 1 then
-		return selected[1].Name .. " And Others " .. #selected .. " Instances"
-	elseif #selected > 0 then
-		return selected[1].Name
-	else
+	if game:GetService("RunService"):IsEdit() == false then
 		return "Nothing"
+	else
+		local selected = game:GetService("Selection"):Get()
+		if #selected > 1 then
+			return selected[1].ClassName .. " With Others " .. #selected .. " Instances"
+		elseif #selected > 0 then
+			return selected[1].ClassName
+		else
+			return "Nothing"
+		end
 	end
 end
 
@@ -113,7 +117,7 @@ task.spawn(function()
 end)]]></ProtectedString>
 			<bool name="Disabled">false</bool>
 			<Content name="LinkedSource"><null></null></Content>
-			<token name="RunContext">0</token>
+			<token name="RunContext">3</token>
 			<string name="ScriptGuid">{D2DDE299-88D2-47D8-A25E-C92EA5773C17}</string>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
